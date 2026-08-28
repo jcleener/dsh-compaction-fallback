@@ -1,0 +1,50 @@
+{
+  "name": "dsh-compaction-fallback",
+  "version": "0.1.0",
+  "description": "Compaction summarization fallback — on any summarize failure, retry up to 3 times with a fallback model (default deepseek-official/deepseek-v4-flash); settings page model picker.",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "compaction",
+    "fallback",
+    "summarization",
+    "plugin",
+    "deepseek"
+  ],
+  "author": "jcleener",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jcleener/dsh-compaction-fallback.git"
+  },
+  "homepage": "https://github.com/jcleener/dsh-compaction-fallback#readme",
+  "bugs": {
+    "url": "https://github.com/jcleener/dsh-compaction-fallback/issues"
+  },
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "cordis.patch.yml"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-runtime",
+        "@deepseek-ai/dsh-client-ui-settings",
+        "@deepseek-ai/dsh-client-ui-primitives"
+      ],
+      "platform": "web"
+    }
+  },
+  "license": "MIT"
+}

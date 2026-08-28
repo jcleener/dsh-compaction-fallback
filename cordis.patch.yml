@@ -1,0 +1,10 @@
+# dsh-compaction-fallback — bundle patch layer.
+#
+# Mounting this package into the web profile composes the compaction
+# summarization fallback: the host half wraps the compaction engine's
+# summarize() hook (any failure → retry up to 3 times with a configurable
+# fallback model), and the browser half ships the settings "压缩兜底" section
+# via exports["./client"].
+- insert:
+    - id: dsh-compaction-fallback
+      name: dsh-compaction-fallback
